@@ -248,14 +248,14 @@ if __name__ == '__main__':
     sched = BlockingScheduler(job_defaults={'misfire_grace_time': 15*60})
 
     '''
-    power rankings:                     tuesday evening at 6:30pm. 
+    power rankings:                     tuesday evening at 7:30pm. 
     matchups:                           thursday evening at 7:30pm.
     close scores (within 15.99 points): monday evening at 6:30pm. 
     trophies:                           tuesday morning at 7:30am.
     score update:                       friday, monday, and tuesday morning at 7:30am.
     score update:                       sunday at 1pm, 4pm, 8pm. 
     '''
-    sched.add_job(bot_main, 'cron', ['get_power_rankings'], id='power_rankings', day_of_week='tue', hour=18, minute=30, start_date=ff_start_date, end_date=ff_end_date, timezone=myTimezone, replace_existing=True)
+    sched.add_job(bot_main, 'cron', ['get_power_rankings'], id='power_rankings', day_of_week='tue', hour=19, minute=30, start_date=ff_start_date, end_date=ff_end_date, timezone=myTimezone, replace_existing=True)
     sched.add_job(bot_main, 'cron', ['get_matchups'], id='matchups', day_of_week='thu', hour=19, minute=30, start_date=ff_start_date, end_date=ff_end_date, timezone=myTimezone, replace_existing=True)
     sched.add_job(bot_main, 'cron', ['get_close_scores'], id='close_scores', day_of_week='mon', hour=18, minute=30, start_date=ff_start_date, end_date=ff_end_date, timezone=myTimezone, replace_existing=True)
     sched.add_job(bot_main, 'cron', ['get_final'], id='final', day_of_week='tue', hour=7, minute=30, start_date=ff_start_date, end_date=ff_end_date, timezone=myTimezone, replace_existing=True)
